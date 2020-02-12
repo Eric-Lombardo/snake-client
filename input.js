@@ -28,7 +28,8 @@ const handleUserInput = function(key) {
   // ctrl+c
   if (key === "\u0003") {
     process.exit();
-  } else if (key === "\u0077") {
+  } // w a s d
+    else if (key === "\u0077") {
     connection.write("Move: up");
   } else if (key === "\u0073") {
     connection.write("Move: down")
@@ -36,6 +37,9 @@ const handleUserInput = function(key) {
     connection.write("Move: left")
   } else if (key === "\u0064") {
     connection.write("Move: right")
+  } // custom message
+    else if (key === "\u0020") {
+    connection.write("Say: 2fast2furious")
   }
 };
 
