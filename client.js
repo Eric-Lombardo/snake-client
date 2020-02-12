@@ -13,12 +13,18 @@ const connect = function() {
   // interpret incoming data as text
   conn.setEncoding("utf8");
 
-  // to handle data
+  // for data handler
   conn.on("data", data => {
     console.log(data);
+  })
+
+  // for connection handler
+  conn.on("connect", () => {
+    console.log("Successfully connected to game server");
+    conn.write("Name: EJL")
   })
 
   return conn;
 };
 
-module.exports.connect = connect;
+module.exports = { connect };

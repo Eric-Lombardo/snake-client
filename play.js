@@ -2,8 +2,7 @@
 // key which is a function within the client.js
 // export object.
 
-const client = require("./client");
-const connect = client.connect;
+const { connect } = require("./client");
 
 // executing connect function from client.js
 console.log("connecting ....");
