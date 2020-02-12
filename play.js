@@ -6,8 +6,9 @@ const { connect } = require("./client");
 const { setupInput } = require("./input")
 
 // executing connect function from client.js
+// connect(); // commented this out because we are passing the return value (object) of this into setupInput 
 console.log("connecting ....");
-connect();
 
 // excuting setupInput function from input.js
-setupInput();
+setupInput(connect());
+
