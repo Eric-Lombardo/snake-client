@@ -21,6 +21,22 @@ const setupInput = function(conn) {
   return stdin;
 }
 
+
+// hacked version to go faster
+const goFast = function(commandStr) {
+  let timeDelay = 0;
+
+  for (let i = 0; i < 10; i++) {
+    setTimeout(() => {
+      connection.write(commandStr);
+    }, timeDelay)
+    timeDelay += 50;
+  }
+}
+
+
+
+
 // will be used as a call back in setupInput to check if the key pressed
 // is ctrl+c and if it is to exit out of the program
 const handleUserInput = function(key) {
@@ -30,13 +46,13 @@ const handleUserInput = function(key) {
     process.exit();
   } // w a s d
     else if (key === "\u0077") {
-    connection.write("Move: up");
+    goFast("Move: up");
   } else if (key === "\u0073") {
-    connection.write("Move: down")
+    goFast("Move: down")
   } else if (key === "\u0061") {
-    connection.write("Move: left")
+    goFast("Move: left")
   } else if (key === "\u0064") {
-    connection.write("Move: right")
+    goFast("Move: right")
   } // custom message
     else if (key === "\u0020") {
     connection.write("Say: 2fast2furious")
